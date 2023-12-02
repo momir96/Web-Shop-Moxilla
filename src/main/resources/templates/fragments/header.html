@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:fragment="header-css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css/}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.0.10/web-fonts-with-css/css/fontawesome-all.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <title th:text="#{header.app.title}"></title>
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <a class="navbar-brand" href="/home">Moxilla</a>
+            <div class="collapse navbar-collapse w-100 order-1 order-md-0 dual-collapse2"
+            id="navbarNavAltMarkup">
+                <form class="form-inline ml-5 my-2 my-lg-0">
+                    <input class="form-control mr-sm-2"
+                           type="search" title="search-product">
+                    <button type="submit" th:text="#{header.search}"
+                            class="btn my-2 my-sm-0 btn-outline-light"></button>
+                </form>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="navbar-text" th:text="#{header.logged}"
+                    sec:authorize="isAuthenticated()"></li>
+
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/admin}" sec:authorize="hasRole('ROLE_ADMIN')"
+                        style="color: #1e90ff"
+                           th:text="${#httpServletRequest.getRemoteUser().toUpperCase()}"></a>
+                        <a class="nav-link" sec:authorize="hasRole('ROLE_USER')" th:href="@{/user}" style="color: #91a8ff;"
+                           th:text="${#httpServletRequest.getRemoteUser().toUpperCase()}"></a>
+
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/logout}" th:text="#{user.log_out}"></a>
+                    </li>
+
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" th:href="@{/login}" th:text="#{user.log_in}"></a>
+                    </li>
+
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" th:href="@{/register}" th:text="#{register.button}"></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/cart}"><img id="cart" th:src="@{/images/cart.png}"></a>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+
+    </nav>
+</div>
+</body>
+</html>

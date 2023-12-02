@@ -1,0 +1,33 @@
+<!doctype HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+<div th:fragment="footer">
+    <div class="container">
+        <footer>
+            <span th:text="#{footer.copyright}"></span>
+            <span>
+                    <a th:href="@{/about}" th:text="#{about.name}"></a>
+                </span>
+            <label>
+                <select class="custom-select" id="select-lang">
+
+                    <option value="eng" th:selected="${#locale.getLanguage().toString() == 'en'}" th:text="#{footer.language.en}"></option>
+                    <option value="pl" th:selected="${#locale.getLanguage().toString() == 'pl'}" th:text="#{footer.language.pl}"></option>
+
+                    <option disabled value="den" th:selected="${#locale.getLanguage().toString() == 'den'}" th:text="#{footer.language.den}"></option>
+                </select>
+            </label>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
+            integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <script type="text/javascript" th:src="@{/js/lang.js}"></script>
+</div>
+</body>
+
+</html>
