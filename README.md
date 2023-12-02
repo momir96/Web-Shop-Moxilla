@@ -1,2 +1,3 @@
 # Web-Shop-Moxilla
-A Spring Full-stack Webshop is a project that combines backend and frontend technologies using the Spring framework for backend development and technologies such as Thymeleaf for the frontend
+A Spring Full-stack Webshop is a project that combines backend and frontend technologies using the Spring framework for backend development and technologies such as Thymeleaf for the frontend.
+This webshop allows users to browse products, add them to the cart, make purchases, and perform transactions. The backend manages the database of products, users, and transactions, while the frontend provides users with an intuitive experience through interactive design and functionalities such as product search, shopping cart, and a secure checkout process. Integrating different technologies enables the creation of a complete webshop with all the necessary functionalities for users.
